@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npcs>
+	<npc name="Buddy">
+		<message id="0">Hey guy!</message>
+		<message id="1">Am I your buddy?</message>
+
+		<option for="1" response="3">Yes</option>
+		<option id="1" response="4">No</option>
+
+		<message id="3">Alright guy! I'm going to fight a dire bear now</message>
+		<message id="4">I'm sorry guy, but I hope you get eaten by a dire bear</message>
+	</npc>
+
+	<npc name="Guy">
+		<message id="0">Hey buddy!</message>
+		<message id="1">Am I your guy?</message>
+	</npc>
+</npcs>
