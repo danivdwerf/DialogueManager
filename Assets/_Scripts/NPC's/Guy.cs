@@ -1,13 +1,13 @@
-﻿public class Guy : NPC 
-{
-    protected override void Start()
-    {
-        base.Start();
-    }
+﻿using UnityEngine;
 
+using System.Xml;
+using System.Collections.Generic;
+
+public class Guy : NPC 
+{
     public override void conversation()
     {
-        dialogueWindow.setText("Talk to me baby");
-        dialogueWindow.show(true);
+
+        this.showMessage(0);
     }
 }

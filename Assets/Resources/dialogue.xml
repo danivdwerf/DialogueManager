@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npcs>
 	<npc name="Buddy">
-		<message id="0">Hey guy!</message>
-		<message id="1">Am I your buddy?</message>
+		<message id="0">Hey guy! Am I your buddy?</message>
+		<option for="0" response="1">Yes</option>
+		<message id="1">Alright guy! I'm going to fight a dire bear now</message>
+		<option for="1" response="exit">Okay, good luck!</option>
 
-		<option for="1" response="3">Yes</option>
-		<option id="1" response="4">No</option>
-
-		<message id="3">Alright guy! I'm going to fight a dire bear now</message>
-		<message id="4">I'm sorry guy, but I hope you get eaten by a dire bear</message>
+		<option for="0" response="2">No</option>
+		<message id="2">I'm sorry guy, but I hope you get eaten by a dire bear</message>
+		<option for="2" response="3">What is a dire bear?</option>
+		<message id="3">It's a bear, but dire</message>
+		<option for="3" response="exit">Leave</option>
 	</npc>
 
 	<npc name="Guy">
-		<message id="0">Hey buddy!</message>
-		<message id="1">Am I your guy?</message>
+		<message id="0">Hey buddy! Am I your guy?</message>
+
+		<option for="0" response="1">Aren't you the guy that called me buddy before?</option>
+		<message id="1">Ehm... NO! Don't you have coins to collect or something?</message>
+		<option for="1" response="2">Don't make fun of game logic</option>
+		<option for="1" response="3">Sorry for asking</option>
+		<option for="1" response="exit">You're weird</option>
+
+		<message id="2">Why not? It's not like it's going to matter</message>
+		<option for="2" response="exit">We have different opinions about that.</option>
+
+		<message id="3">NO! Go away.</message>
+		<option for="3" response="exit">Leave</option>
+
+		<option for="0" response="4">Depends, are you my pal?</option>
+		<message id="4">I am not you pal, buddy. I am no more than your guy. Maybe, your friend.</message>
+		<option for="4" response="exit">Leave</option>
 	</npc>
 </npcs>
