@@ -1,11 +1,7 @@
 # Dialogue Manager
 
-This is my take on a dialogue manager.
-All dialogue is loaded from an XML file,
-which has options for multiple answers and multiple conversation trees.
-kgyhtuytugyfityf
-hgnkhjgnl
-jml7tyunylnglh
+For this assignment, I had to write a dialogue manager that loads the dialogue from an XML file.
+It can be used for multiple npc's and has the option to have four different answers.
+You can create as many conversation branches as you want and easily put different options to each sentence.
 
-mhlhlkjhlkm
-lkhmljkhlkjhlmiuoniuhjkl
+Webbuild: <a href="http://freetimedev.com/resources/projects/dialogue/index.html">Here</a>
