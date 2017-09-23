@@ -59,17 +59,11 @@ public abstract class NPC : MonoBehaviour
         this.interactionText = this.gameObject.GetComponentInChildren<Text>();
         this.interactionText.text = "";
         this.textActive = false;
-        this.loadDialogueFile();
+        this.loadDialogueFile(LoadXMLFile.load("dialogue"));
     }
 
-    protected void loadDialogueFile()
+    protected void loadDialogueFile(XmlDocument xmlDoc)
     {
-        XmlDocument xmlDoc = new XmlDocument();
-        TextAsset temp = Resources.Load("dialogue") as TextAsset;
-        if (!temp)
-            throw new XmlException("Failed to load xml file");
-
-        xmlDoc.LoadXml(temp.text);
         XmlNodeList npcList = xmlDoc.GetElementsByTagName("npc");
 
         for (var i = 0; i < npcList.Count; i++)
@@ -140,6 +134,6 @@ public abstract class NPC : MonoBehaviour
         this.conversation();
     }
 
-    public virtual void init(){}
+    public virtual void init(){} 
     public abstract void conversation();
 }
