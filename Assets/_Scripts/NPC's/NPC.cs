@@ -40,26 +40,29 @@ public struct Message_node
     }
 };
 
+[RequireComponent(typeof(NPCui))]
 public abstract class NPC : MonoBehaviour 
 {
     [SerializeField]protected string name;
     [SerializeField]protected float interactionRange;
-    protected Text interactionText;
-    protected bool textActive;
 
     protected List<Message_node> messages = new List<Message_node>();
 
     protected CheckDistance2Player playerDistance;
     protected DialogueWindow dialogueWindow;
+    protected NPCui ui;
 
     protected virtual void Start()
     {
+        this.setReferences();
+        this.loadDialogueFile(LoadXMLFile.load("dialogue"));
+    }
+
+    protected void setReferences()
+    {
         this.dialogueWindow = GameObject.FindGameObjectWithTag(Tags.dialogueManager).GetComponent<DialogueWindow>();
         this.playerDistance = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<CheckDistance2Player>();
-        this.interactionText = this.gameObject.GetComponentInChildren<Text>();
-        this.interactionText.text = "";
-        this.textActive = false;
-        this.loadDialogueFile(LoadXMLFile.load("dialogue"));
+        this.ui = this.GetComponent<NPCui>();
     }
 
     protected void loadDialogueFile(XmlDocument xmlDoc)
@@ -114,19 +117,11 @@ public abstract class NPC : MonoBehaviour
     {   
         if (!playerDistance.inRange(this.transform.position, this.interactionRange))
         {
-            if (textActive)
-            {
-                this.interactionText.text = "";
-                textActive = false;
-            }
+            ui.setInteractionText("");
             return;
         }
 
-        if (!textActive)
-        {
-            this.interactionText.text = "Press 'E' to interact";
-            textActive = true;
-        }
+        ui.setInteractionText("Press 'E' to interact");
 
         if (!Input.GetKeyDown(KeyCode.E))
             return;
