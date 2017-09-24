@@ -55,7 +55,8 @@ public abstract class NPC : MonoBehaviour
     protected virtual void Start()
     {
         this.setReferences();
-        this.loadDialogueFile(LoadXMLFile.load("dialogue"));
+//        this.loadDialogueFile(LoadXMLFile.loadFromResource("dialogue"));
+        this.loadDialogueFile(LoadXMLFile.loadFromURL("http://freetimedev.com/resources/projects/dialogue/dialogue.xml"));
     }
 
     protected void setReferences()
